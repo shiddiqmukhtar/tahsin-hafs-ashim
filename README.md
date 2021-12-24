@@ -1,3 +1,4 @@
 # tahsin-hafs-ashim
-## Qiroah hafs anshim riwayat ash-shatiby.
+## Qiroah Hafs an Ashim riwayat Ash-shatiby.
 
+### Blog ini rencananya akan digunakan sebagai media untuk menyambung wawasan pengetahuan tentang bacaan Al Quran.
