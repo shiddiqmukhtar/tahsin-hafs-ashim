@@ -1,0 +1,42 @@
+{# app artikel #}
+{% extends 'base.html' %}
+
+{% block title %}
+    Create
+{% endblock title %}
+
+{% block contents %}
+    <h3>Tambah Artikel</h3>
+    <br>
+    
+    <form method="POST">
+        {% csrf_token %}
+              
+        <div class="mb-3">
+           <label for="{{form.judul.id_for_label}}">{{form.judul.label}}</label>
+           <input type="text" class="form-control" name="{{form.judul.name}}" maxlength="{{form.judul.max}}" required id="{{form.judul.id_for_label}}">
+        </div>
+        <div class="mb-3">
+            <label for="{{form.isi.id_for_label}}">{{form.isi.label}}</label>
+            <textarea class="form-control" name="{{form.isi.name}}" rows="10" required id="{{form.isi.id_for_label}}">
+            </textarea>
+        </div>
+        <div class="mb-3">
+            <label for="{{form.penulis.id_for_label}}">{{form.penulis.label}}</label>
+            <input type="text" class="form-control" name="{{form.penulis.name}}" maxlength="{{form.penulis.max}}" required id="{{form.penulis.id_for_label}}">
+            </input>
+        </div>
+        <div class="mb-3">
+            <label for="{{form.kategory.id_for_label}}">{{form.kategory.label}}</label>
+            <input type="text" class="form-control" name="{{form.kategory.name}}" maxlength="{{form.kategory.max}}" required id="{{form.kategory.id_for_label}}">
+            </input>
+        </div>
+        
+        
+        <br>
+        <div class="d-grid ">
+          <button class="btn btn-primary btn-lg" type="Submit">Submit</button>
+</div>
+    
+    </form>
+{% endblock contents %}

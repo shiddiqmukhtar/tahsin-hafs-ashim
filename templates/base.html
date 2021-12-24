@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}
+  
+        {% endblock title %}
+    </title>
+    {% include 'snippets/styles.html' %}
+</head>
+<body>
+    {% include 'snippets/navbar.html' %}
+    <div class="container" style="margin-top:80px">
+        {% block contents %}
+        
+        {% endblock contents %}
+    
+    {% include 'snippets/scripts.html'%}
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

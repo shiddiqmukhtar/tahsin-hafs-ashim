@@ -1,0 +1,40 @@
+{# app artikel #}
+
+{% extends 'base.html' %}
+
+{% block title %}
+    artikel manager
+{% endblock title %}
+
+{% block contents %}
+    <h3>Artikel Manager</h3>
+    <br>
+    <div class="d-grid">
+      <a class="btn btn-primary mb-4 btn-lg" href="{% url 'artikel:create' %}">Tambah Artikel</a>
+    </div>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Judul Artikel</th>
+          <th scope="col">Kategori</th>
+          <th scope="col">Published</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for artikel in artikel_list %}
+              <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{artikel.judul}}</td>
+                  <td>{{artikel.kategory}}</td>
+                  <td>{{artikel.published|date}}</td>
+                  <td>
+                      <a class="btn btn-outline-success" href="{% url 'artikel:update' artikel.id %}">Edit</a>
+                      <a class="btn btn-outline-danger" href="{% url 'artikel:delete'  artikel.id %}" title="">Delete</a>
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+</table>
+{% endblock contents %}

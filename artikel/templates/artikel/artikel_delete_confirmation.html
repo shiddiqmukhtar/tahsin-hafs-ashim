@@ -1,0 +1,22 @@
+{# app artikel delete #}
+
+{% extends 'base.html' %}
+
+{% block title %}
+    artikel delete
+{% endblock title %}
+
+{% block contents %}
+    <h1 style="color:#f00">Artikel Delete</h1>
+    <p>Anda mau menghapus artikel berikut?</p>
+    <h3>{{artikel.judul}}</h3>
+    <p>{{artikel.published}}</p>
+    <p>{{artikel.isi | truncatewords:50}}</p>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">Ya, Delete</button>
+        <a class="btn btn-outline-success" href="{% url 'artikel:manage' %}" >Tidak</a>
+    </form>
+    
+{% endblock contents %}

@@ -1,0 +1,53 @@
+{# app artikel #}
+
+{% extends 'base.html' %}
+
+{% block title %}
+    {{artikel.judul}}
+{% endblock title %}
+
+{% block contents %}
+    
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Detail Artikel</h3>
+            <hr>
+            <h2><a class="text-info" style="text-decoration:none" href="{% url 'artikel:list' 1 %}" title="">{{artikel.judul}}</a></h2>
+            <h5 style="color:#f00">{{artikel.penulis}} | {{artikel.updated|date}}</h5>
+            <h5 style="color:#0a0">Kategory: {{artikel.kategory}}</h5>
+            <p style="text-align:">{{artikel.isi}}</p>
+        </div>
+        <div class="col-sm">
+            <h3>Kategori</h3>
+            <hr>
+            <ul class="list-group list-group-flush">
+                {% for kategori in kategori_list %}
+              <li class="list-group-item"><a class="text-success" style="text-decoration:none" href="{% url 'artikel:category' kategori 1 %}" title="">- {{kategori}}</a></li>
+                {% endfor %}
+            </ul>
+            <br>
+            <h4 style="color:#064635">Artikel Serupa</h4>
+            <hr>
+            <ul class="list-group list-group-flush">
+                {% for artikel in artikel_serupa %}
+                
+                {% if forloop.counter is not 4 %}      
+              <li class="list-group-item">
+                  <h5><a class="text-success" style="text-decoration:none" href="{% url 'artikel:detail' artikel.slug %}" title="">❖ {{artikel.judul}}</a></h5>
+                  <p>{{artikel.published|date}}</p>
+              </li>
+                  {% else %}
+                  {% endif %}
+                {% endfor %}
+              <li class="list-group-item">
+                  <h5><a class="text-success" style="text-decoration:none" href="{% url 'artikel:category' artikel.kategory 1 %}" title="">selengkapnya...</a></h5>
+            </ul>
+        </div>
+    </div>
+    
+{% endblock contents %}
+
+
+
+
+
